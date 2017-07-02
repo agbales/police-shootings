@@ -17,6 +17,7 @@ class App extends Component {
   }
   render() {
     let cases = this.state.cases
+    console.log(cases)
     if(this.state.filter){
       cases = cases.filter( c =>
         c.city.toLowerCase()
@@ -25,12 +26,13 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <input type="text" onChange={this.filter.bind(this)} />
-        <h1>All Records:</h1>
+        <input type="text" onChange={this.filter.bind(this)} placeholder="Check your city"/>
+        <RaceStats cases={this.state.cases} />
         <table>
           <thead>
             <tr>
               <th>name</th>
+              <th>race</th>
               <th>date</th>
               <th>city</th>
               <th>state</th>
@@ -49,9 +51,33 @@ class App extends Component {
 
 const Listing = (props) => <tr>
                               <td>{props.individual.name}</td>
+                              <td>{props.individual.race}</td>
                               <td>{props.individual.date}</td>
                               <td>{props.individual.city}</td>
                               <td>{props.individual.state}</td>
                             </tr>
+
+const RaceStats = (props) => {
+                                let initialValue = {}
+                                var reducer = (tally, c) => {
+                                  let race = c.race;
+
+                                  if(race.length == 0) {
+                                    race = "NA"
+                                  }
+
+                                  if(!tally[race]) {
+                                    tally[race] = 1;
+                                  } else {
+                                    tally[race] = tally[race] + 1;
+                                  }
+
+                                  return tally;
+                                };
+
+                                var raceObj = props.cases.reduce(reducer, initialValue)
+                                console.log(raceObj);
+                                return <div>placeholder</div>
+                              }
 
 export default App;
