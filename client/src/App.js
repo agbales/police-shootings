@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
 import './App.css';
 
 class App extends Component {
@@ -6,7 +7,6 @@ class App extends Component {
     super();
     this.state = {cases: []}
   }
-
   componentDidMount() {
     fetch('/cases')
       .then(res => res.json())
@@ -62,7 +62,7 @@ const RaceStats = (props) => {
                                 var reducer = (tally, c) => {
                                   let race = c.race;
 
-                                  if(race.length == 0) {
+                                  if(race.length === 0) {
                                     race = "NA"
                                   }
 
@@ -76,8 +76,29 @@ const RaceStats = (props) => {
                                 };
 
                                 var raceObj = props.cases.reduce(reducer, initialValue)
-                                console.log(raceObj);
-                                return <div>placeholder</div>
+                                var data = []
+                                Object.keys(raceObj).map(function(key){
+                                  var o = {};
+                                      o.race = key
+                                      o[key] = raceObj[key]
+                                  data.push(o)
+                                });
+                                console.log(data);
+                                return (<BarChart width={1000} height={500} data={data}
+                                                  margin={{top: 5, right: 5, left: 5, bottom: 5}}>
+                                         <XAxis dataKey="race"/>
+                                         <YAxis/>
+                                         <CartesianGrid strokeDasharray="1 1"/>
+                                         <Tooltip/>
+                                         <Legend />
+                                         <Bar dataKey="A" fill="#8884d8" />
+                                         <Bar dataKey="B" fill="#82ca9d" />
+                                         <Bar dataKey="H" fill="#82ca9d" />
+                                         <Bar dataKey="N" fill="#82ca9d" />
+                                         <Bar dataKey="O" fill="#82ca9d" />
+                                         <Bar dataKey="W" fill="#82ca9d" />
+                                         <Bar dataKey="NA" fill="#82ca9d" />
+                                      </BarChart>)
                               }
 
 export default App;
