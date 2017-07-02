@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  state = {cases: []}
+  constructor() {
+    super();
+    this.state = {cases: []}
+  }
 
   componentDidMount() {
     fetch('/cases')
@@ -11,24 +14,23 @@ class App extends Component {
   }
 
   render() {
+    let cases = this.state.cases
+
     return (
       <div className="App">
-        <h1>Users</h1>
+        <h1>All Records:</h1>
         <table>
           <thead>
             <tr>
-              <th>id</th>
               <th>name</th>
               <th>date</th>
+              <th>city</th>
+              <th>state</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.cases.map(individual =>
-              <tr key={individual.id}>
-                <td>{individual.id}</td>
-                <td>{individual.name}</td>
-                <td>{individual.date}</td>
-              </tr>
+            {cases.map(individual =>
+              <Listing key={individual.id} listing={individual} />
             )}
           </tbody>
         </table>
@@ -36,5 +38,12 @@ class App extends Component {
     );
   }
 }
+
+const Listing = (props) => <tr>
+                              <td>{props.listing.name}</td>
+                              <td>{props.listing.date}</td>
+                              <td>{props.listing.city}</td>
+                              <td>{props.listing.state}</td>
+                            </tr>
 
 export default App;
