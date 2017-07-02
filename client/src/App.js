@@ -12,12 +12,20 @@ class App extends Component {
       .then(res => res.json())
       .then(cases => this.setState({ cases }));
   }
-
+  filter(e){
+    this.setState({filter: e.target.value})
+  }
   render() {
     let cases = this.state.cases
-
+    if(this.state.filter){
+      cases = cases.filter( c =>
+        c.city.toLowerCase()
+        .includes(this.state.filter.toLowerCase())
+      )
+    }
     return (
       <div className="App">
+        <input type="text" onChange={this.filter.bind(this)} />
         <h1>All Records:</h1>
         <table>
           <thead>
