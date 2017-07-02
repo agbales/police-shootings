@@ -77,27 +77,23 @@ const RaceStats = (props) => {
 
                                 var raceObj = props.cases.reduce(reducer, initialValue)
                                 var data = []
+                                // construct object for BarChart
                                 Object.keys(raceObj).map(function(key){
                                   var o = {};
-                                      o.race = key
-                                      o[key] = raceObj[key]
-                                  data.push(o)
+                                  if(key !== "race"){
+                                    o.race = key
+                                    o.total = raceObj[key]
+                                    data.push(o)
+                                  }
                                 });
                                 console.log(data);
-                                return (<BarChart width={1000} height={500} data={data}
+                                return (<BarChart width={600} height={300} data={data}
                                                   margin={{top: 5, right: 5, left: 5, bottom: 5}}>
                                          <XAxis dataKey="race"/>
                                          <YAxis/>
                                          <CartesianGrid strokeDasharray="1 1"/>
                                          <Tooltip/>
-                                         <Legend />
-                                         <Bar dataKey="A" fill="#8884d8" />
-                                         <Bar dataKey="B" fill="#82ca9d" />
-                                         <Bar dataKey="H" fill="#82ca9d" />
-                                         <Bar dataKey="N" fill="#82ca9d" />
-                                         <Bar dataKey="O" fill="#82ca9d" />
-                                         <Bar dataKey="W" fill="#82ca9d" />
-                                         <Bar dataKey="NA" fill="#82ca9d" />
+                                         <Bar dataKey="total" fill="#8884d8" />
                                       </BarChart>)
                               }
 
