@@ -38,7 +38,7 @@ class App extends Component {
           </thead>
           <tbody>
             {cases.map(individual =>
-              <Listing key={individual.id} listing={individual} />
+              <Listing key={individual.id} individual={individual} />
             )}
           </tbody>
         </table>
@@ -48,10 +48,10 @@ class App extends Component {
 }
 
 const Listing = (props) => <tr>
-                              <td>{props.listing.name}</td>
-                              <td>{props.listing.date}</td>
-                              <td>{props.listing.city}</td>
-                              <td>{props.listing.state}</td>
+                              <td>{props.individual.name}</td>
+                              <td>{props.individual.date}</td>
+                              <td>{props.individual.city}</td>
+                              <td>{props.individual.state}</td>
                             </tr>
 
 export default App;
