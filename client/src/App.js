@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
+import ReactDOM from 'react-dom';
+import { Nav, Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -26,51 +28,55 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <nav className="navbar navbar-default">
+        <Nav>
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="https://github.com/washingtonpost/data-police-shootings" target="_blank">WP Stats</a>
+              <a className="navbar-brand" href="https://github.com/washingtonpost/data-police-shootings">WP Stats</a>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form className="navbar-form navbar-left">
-                <div className="form-group">
-                  <input type="text" class="form-control" onChange={this.filter.bind(this)} placeholder="ex: Seattle" />
-                </div>
-              </form>
               <ul className="nav navbar-nav navbar-right">
                 <li><a href="#">Raw Data</a></li>
               </ul>
             </div>
           </div>
-        </nav>
-        <div class="jumbotron">
-          <h1>2017 Police Shootings</h1>
-          <p>This project uses data from the Washington Post to allow you to serach for individuals who have been shot and killed by police in your town.</p>
-          <p><a class="btn btn-primary btn-lg" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjw-rCZ6ezUAhVU42MKHVdDD0MQFggrMAA&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2Fnational%2Fpolice-shootings-2017%2F&usg=AFQjCNEMf2l63yKusAWlcWBge9hC1PpMbw&cad=rja" role="button" target="_blank">Learn more</a></p>
-        </div>
-        <div className="row">
-          <div className=".col-md-3" />
-          <div className=".col-md-6">
-            <RaceStats cases={this.state.cases} />
-            <table>
-              <thead>
-                <tr>
-                  <th>name</th>
-                  <th>race</th>
-                  <th>date</th>
-                  <th>city</th>
-                  <th>state</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cases.map(individual =>
-                  <Listing key={individual.id} individual={individual} />
-                )}
-              </tbody>
-            </table>
-          </div>
-          <div className=".col-md-3" />
-        </div>
+        </Nav>
+        <Grid>
+          <Row>
+            <Col md={2} />
+            <Col md={8}>
+              <Jumbotron id="about-jumbo">
+                <RaceStats cases={this.state.cases} />
+                <h3>2017 Police Shootings</h3>
+                <p>This project uses data from the Washington Post to allow you to serach for individuals who have been shot and killed by police in your town.</p>
+                <Button bsStyle="primary" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjw-rCZ6ezUAhVU42MKHVdDD0MQFggrMAA&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2Fnational%2Fpolice-shootings-2017%2F&usg=AFQjCNEMf2l63yKusAWlcWBge9hC1PpMbw&cad=rja">Learn more</Button>
+                <br />
+              </Jumbotron>
+              <Jumbotron id="search-jumbo">
+                <h3>Filter by City</h3>
+                <div className="form-group">
+                  <input type="text" class="form-control" onChange={this.filter.bind(this)} placeholder="ex: Seattle" />
+                </div>
+              </Jumbotron>
+              <table>
+                <thead>
+                  <tr>
+                    <th>name</th>
+                    <th>race</th>
+                    <th>date</th>
+                    <th>city</th>
+                    <th>state</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cases.map(individual =>
+                    <Listing key={individual.id} individual={individual} />
+                  )}
+                </tbody>
+              </table>
+            </Col>
+            <Col md={2} />
+          </Row>
+        </Grid>
       </div>
     );
   }
