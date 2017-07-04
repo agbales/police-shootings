@@ -46,7 +46,7 @@ class App extends Component {
             <Col md={8}>
               <Jumbotron id="about-jumbo">
                 <RaceStats cases={this.state.cases} />
-                <h3>2017 Police Shootings</h3>
+                <h3>Police Shootings</h3>
                 <p>This project uses data from the Washington Post to allow you to serach for individuals who have been shot and killed by police in your town.</p>
                 <Button bsStyle="primary" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjw-rCZ6ezUAhVU42MKHVdDD0MQFggrMAA&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2Fnational%2Fpolice-shootings-2017%2F&usg=AFQjCNEMf2l63yKusAWlcWBge9hC1PpMbw&cad=rja">Learn more</Button>
                 <br />
