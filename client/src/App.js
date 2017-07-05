@@ -70,11 +70,7 @@ class App extends Component {
                     <th>Gender</th>
                     <th>Race</th>
                     <th>Date</th>
-                    <th>Manner of Death</th>
                     <th>Armed</th>
-                    <th>Mental Illness</th>
-                    <th>Threat</th>
-                    <th>Flee</th>
                     <th>Body Cam</th>
                     <th>City</th>
                     <th>State</th>
@@ -100,11 +96,7 @@ const Listing = (props) => <tr>
                               <td>{props.individual.gender}</td>
                               <td>{props.individual.race}</td>
                               <td>{props.individual.date}</td>
-                              <td>{props.individual.manner_of_death}</td>
                               <td>{props.individual.armed}</td>
-                              <td>{props.individual.signs_of_mental_illness}</td>
-                              <td>{props.individual.threat_level}</td>
-                              <td>{props.individual.flee}</td>
                               <td>{props.individual.body_camera}</td>
                               <td>{props.individual.city}</td>
                               <td>{props.individual.state}</td>
