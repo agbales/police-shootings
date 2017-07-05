@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import ReactDOM from 'react-dom';
 import { Nav, Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import './App.css';
@@ -31,11 +31,11 @@ class App extends Component {
         <Nav>
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="https://github.com/washingtonpost/data-police-shootings">WP Stats</a>
+              <a className="navbar-brand" href="#">Police Shootings</a>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="#">Raw Data</a></li>
+                <li><a href="twitter.com/agbales">@agbales</a></li>
               </ul>
             </div>
           </div>
@@ -47,7 +47,7 @@ class App extends Component {
               <Jumbotron id="about-jumbo">
                 <RaceStats cases={this.state.cases} />
                 <h3>Police Shootings</h3>
-                <p>This project uses Washington Post data to explore cases of individuals who have been shot and killed by police. Search by city to view local cases.</p>
+                <p>Explore the Washington Post data on individuals who have been shot and killed by police. Search by city to view local cases.</p>
                 <Button bsStyle="primary" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjw-rCZ6ezUAhVU42MKHVdDD0MQFggrMAA&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2Fnational%2Fpolice-shootings-2017%2F&usg=AFQjCNEMf2l63yKusAWlcWBge9hC1PpMbw&cad=rja">Learn more</Button>
                 <br />
               </Jumbotron>
