@@ -18,6 +18,17 @@
   font-size: large;
 }
 
+#cases-table {
+  border-spacing: 4px;
+  border-collapse: separate;
+}
+
+#cases-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #search-jumbo {
   background-color: #8884d8;
   color: #f5f5f5;

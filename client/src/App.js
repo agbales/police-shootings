@@ -47,7 +47,7 @@ class App extends Component {
               <Jumbotron id="about-jumbo">
                 <RaceStats cases={this.state.cases} />
                 <h3>Police Shootings</h3>
-                <p>This project uses data from the Washington Post to allow you to serach for individuals who have been shot and killed by police in your town.</p>
+                <p>This project uses Washington Post data to explore cases of individuals who have been shot and killed by police. Search by city to view local cases.</p>
                 <Button bsStyle="primary" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjw-rCZ6ezUAhVU42MKHVdDD0MQFggrMAA&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2Fnational%2Fpolice-shootings-2017%2F&usg=AFQjCNEMf2l63yKusAWlcWBge9hC1PpMbw&cad=rja">Learn more</Button>
                 <br />
               </Jumbotron>
@@ -57,14 +57,27 @@ class App extends Component {
                   <input type="text" class="form-control" onChange={this.filter.bind(this)} placeholder="ex: Seattle" />
                 </div>
               </Jumbotron>
-              <table>
+            </Col>
+            <Col md={2} />
+          </Row>
+          <Row>
+            <Col md={12}>
+              <table id="cases-table">
                 <thead>
                   <tr>
-                    <th>name</th>
-                    <th>race</th>
-                    <th>date</th>
-                    <th>city</th>
-                    <th>state</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Race</th>
+                    <th>Date</th>
+                    <th>Manner of Death</th>
+                    <th>Armed</th>
+                    <th>Mental Illness</th>
+                    <th>Threat</th>
+                    <th>Flee</th>
+                    <th>Body Cam</th>
+                    <th>City</th>
+                    <th>State</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,7 +87,6 @@ class App extends Component {
                 </tbody>
               </table>
             </Col>
-            <Col md={2} />
           </Row>
         </Grid>
       </div>
@@ -84,8 +96,16 @@ class App extends Component {
 
 const Listing = (props) => <tr>
                               <td>{props.individual.name}</td>
+                              <td>{props.individual.age}</td>
+                              <td>{props.individual.gender}</td>
                               <td>{props.individual.race}</td>
                               <td>{props.individual.date}</td>
+                              <td>{props.individual.manner_of_death}</td>
+                              <td>{props.individual.armed}</td>
+                              <td>{props.individual.signs_of_mental_illness}</td>
+                              <td>{props.individual.threat_level}</td>
+                              <td>{props.individual.flee}</td>
+                              <td>{props.individual.body_camera}</td>
                               <td>{props.individual.city}</td>
                               <td>{props.individual.state}</td>
                             </tr>
