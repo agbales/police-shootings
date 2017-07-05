@@ -21,6 +21,7 @@
 #cases-table {
   border-spacing: 4px;
   border-collapse: separate;
+  margin: 0 auto;
 }
 
 #cases-table td {
