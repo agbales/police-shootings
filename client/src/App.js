@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import ReactDOM from 'react-dom';
 import { Nav, Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import './App.css';
 
@@ -54,7 +53,7 @@ class App extends Component {
               <Jumbotron id="search-jumbo">
                 <h3>Filter by City</h3>
                 <div className="form-group">
-                  <input type="text" class="form-control" onChange={this.filter.bind(this)} placeholder="ex: Seattle" />
+                  <input type="text" className="form-control" onChange={this.filter.bind(this)} placeholder="ex: Seattle" />
                 </div>
               </Jumbotron>
             </Col>
