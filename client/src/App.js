@@ -93,7 +93,7 @@ class App extends Component {
 }
 
 const Listing = (props) => <tr>
-                              <td>{props.individual.name}</td>
+                              <td className="name">{props.individual.name}</td>
                               <td>{props.individual.age}</td>
                               <td>{props.individual.gender}</td>
                               <td>{props.individual.race}</td>

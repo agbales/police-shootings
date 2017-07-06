@@ -20,14 +20,19 @@
 
 #cases-table {
   border-spacing: 4px;
-  border-collapse: separate;
   margin: 0 auto;
+  width: 100%;
 }
 
 #cases-table td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 10%;
+}
+
+#cases-table td.name {
+  width: 20%;
 }
 
 #search-jumbo {
