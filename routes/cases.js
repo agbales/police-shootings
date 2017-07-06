@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
      columns: columns
   }, function (err, array) {
     console.log(err || 'json sent to front end');
+    var array = array.splice(1, array.length - 1);
     console.log('No. of cases: ' + array.length);
     res.json(array);
   });
