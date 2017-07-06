@@ -14,11 +14,13 @@ class App extends Component {
       .then(cases => this.setState({ cases }));
   }
   filter(e){
+    var height = document.getElementById('search-jumbo').offsetTop;
+    window.scrollTo(0, height);
+
     this.setState({filter: e.target.value})
   }
   render() {
     let cases = this.state.cases
-    console.log(cases)
     if(this.state.filter){
       cases = cases.filter( c =>
         c.city.toLowerCase()
@@ -82,6 +84,7 @@ class App extends Component {
                 </tbody>
               </table>
             </Col>
+            <div className="spacer" />
           </Row>
         </Grid>
       </div>
@@ -131,7 +134,6 @@ const RaceStats = (props) => {
                                   }
                                   return o;
                                 });
-                                console.log(data);
                                 return (<BarChart width={600} height={300} data={data}
                                                   margin={{top: 5, right: 5, left: 5, bottom: 5}}>
                                          <XAxis dataKey="race"/>

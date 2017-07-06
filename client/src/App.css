@@ -38,6 +38,11 @@
   color: #181818;
 }
 
+.spacer {
+  height: 1000px;
+  width: 100vw;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
