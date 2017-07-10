@@ -5,12 +5,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var columns = ["id","name","date","manner_of_death","armed","age","gender","race","city","state","signs_of_mental_illness","threat_level","flee","body_camera"];
   require("csv-to-array")({
-     file: "./public/data/fatal-police-shootings-data.csv",
+     file: "https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv",
      columns: columns
   }, function (err, array) {
-    console.log(err || 'json sent to front end');
     var array = array.splice(1, array.length - 1);
-    console.log('No. of cases: ' + array.length);
     res.json(array);
   });
 });
